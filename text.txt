@@ -1,2 +1,3 @@
-written in main for creating conflict in branch
+written in main branch
 written in feature 1
+feature 1
