@@ -1,0 +1,43 @@
+pipeline{
+    agent any
+    stages{
+        stage('Checkout'){
+            step{
+                echo "into checkout"
+            }
+        }
+        stage('build'){
+            step{
+                echo "into build"
+            }
+        }
+        stage('test'){
+            step{
+                echo "into test"
+            }
+        }
+        stage('staging'){
+            step{
+                echo "into staging"
+            }
+        }
+        stage('deploy'){
+            step{
+                echo "into deploy"
+            }
+        }
+        stage('monitor'){
+            step{
+                echo "into monitor"
+            }
+        }
+    }
+    post{
+        success{
+            echo "pass"
+        }
+        failure{
+            echo "fail"
+        }
+    }
+}
