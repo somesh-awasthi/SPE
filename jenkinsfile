@@ -1,42 +1,42 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('Checkout'){
-            step{
+    stages {
+        stage('Checkout') {
+            steps {
                 echo "into checkout"
             }
         }
-        stage('build'){
-            step{
+        stage('Build') {
+            steps {
                 echo "into build"
             }
         }
-        stage('test'){
-            step{
+        stage('Test') {
+            steps {
                 echo "into test"
             }
         }
-        stage('staging'){
-            step{
+        stage('Staging') {
+            steps {
                 echo "into staging"
             }
         }
-        stage('deploy'){
-            step{
+        stage('Deploy') {
+            steps {
                 echo "into deploy"
             }
         }
-        stage('monitor'){
-            step{
+        stage('Monitor') {
+            steps {
                 echo "into monitor"
             }
         }
     }
-    post{
-        success{
+    post {
+        success {
             echo "pass"
         }
-        failure{
+        failure {
             echo "fail"
         }
     }
