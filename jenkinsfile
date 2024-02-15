@@ -34,10 +34,10 @@ pipeline{
     }
     post{
         success{
-            echo "pass."
+            echo "pass"
         }
         failure{
-            echo "fail."
+            echo "fail"
         }
     }
 }
