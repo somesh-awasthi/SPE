@@ -18,6 +18,14 @@ pipeline{
             }
         }
     }
+    post {
+        success {
+            echo "pass"
+        }
+        failure {
+            echo "fail"
+        }
+    }
 }
 stage('Ansible Deployment') {
              steps {
