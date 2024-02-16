@@ -44,7 +44,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <addClasspath>true</addClasspath>
+                            <addClasspath>true</addClasspath>   
                             <classpathPrefix>lib/</classpathPrefix>
                             <mainClass>org.example.Main</mainClass>
                         </manifest>
