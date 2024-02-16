@@ -3,11 +3,22 @@ import java.util.Scanner;
 import java.lang.Math;
 
 public class Main {
-    public static double factorial(int n) {
+    public static double calculateFactorial(int n) {
         if (n == 0)
             return 1;
         else
-            return n * factorial(n - 1);
+            return n * calculateFactorial(n - 1);
+    }
+    public static double calculateSquareRoot(double input) {
+        return Math.sqrt(input);
+    }
+
+    public static double calculateLog(double input) {
+        return Math.log(input);
+    }
+
+    public static double calculatePower(double base, double exponent) {
+        return Math.pow(base, exponent);
     }
 
     public static void main(String[] args) {
@@ -29,7 +40,7 @@ public class Main {
                 case 1:
                     System.out.print("Enter a number to find its square root: ");
                     double sqrtNum = scanner.nextDouble();
-                    result = Math.sqrt(sqrtNum);
+                    result = calculateSquareRoot(sqrtNum);
                     System.out.println("Square root of " + sqrtNum + " is: " + result);
                     break;
                 case 2:
@@ -39,7 +50,7 @@ public class Main {
                         System.out.println("Factorial is not defined for negative numbers.");
                         break;
                     }
-                    result = factorial(factNum);
+                    result = calculateFactorial(factNum);
                     System.out.println("Factorial of " + factNum + " is: " + result);
                     break;
                 case 3:
@@ -49,7 +60,7 @@ public class Main {
                         System.out.println("Natural logarithm is not defined for non-positive numbers.");
                         break;
                     }
-                    result = Math.log(lnNum);
+                    result = calculateLog(lnNum);
                     System.out.println("Natural logarithm of " + lnNum + " is: " + result);
                     break;
                 case 4:
@@ -57,7 +68,7 @@ public class Main {
                     double base = scanner.nextDouble();
                     System.out.print("Enter the exponent: ");
                     double exponent = scanner.nextDouble();
-                    result = Math.pow(base, exponent);
+                    result = calculatePower(base, exponent);
                     System.out.println(base + " raised to the power of " + exponent + " is: " + result);
                     break;
                 case 5:
