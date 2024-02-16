@@ -1,0 +1,26 @@
+pipeline{
+    agent any
+    stages{
+        stage('clone'){
+            steps{
+                git 'https://github.com/somesh-awasthi/SPE.git'
+            }
+        }
+        stage('build'){
+            steps{
+                sh "chmod u+x build.py"
+                sh "python3 build.py"
+            }
+        }stage('test'){
+            steps{
+                sh "chmod u+x test.py"
+                sh "python3 test.py"
+            }
+        }
+    }
+}
+stage('Ansible Deployment') {
+             steps {
+                    ansible-playbook installation: 'Ansible', playbook: 'deploy-playbook.yml'
+             }
+         }
