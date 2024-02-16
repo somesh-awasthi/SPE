@@ -2,8 +2,8 @@ pipeline{
     agent any
     stages{
         stage('clone'){
-            steps{
-                git 'https://github.com/somesh-awasthi/SPE.git'
+            steps {
+                git branch: 'main', url: 'https://github.com/somesh-awasthi/SPE.git'
             }
         }
         stage('build'){
