@@ -1,0 +1,21 @@
+pipeline {
+    agent any
+    
+    environment {
+        MAVEN_HOME = tool 'Maven'
+    }
+    
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/somesh-awasthi/SPE.git'
+            }
+        }
+        
+        stage('Build') {
+            steps {
+                sh "mvn clean install"
+            }
+        }
+    }
+}
