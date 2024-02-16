@@ -11,7 +11,8 @@ pipeline{
                 sh "chmod u+x build.py"
                 sh "python3 build.py"
             }
-        }stage('test'){
+        }
+        stage('test'){
             steps{
                 sh "chmod u+x test.py"
                 sh "python3 test.py"
