@@ -3,6 +3,7 @@ pipeline {
     
     environment {
         MAVEN_HOME = tool 'Maven'
+        img_name = ""
     }
     
     stages {
@@ -12,9 +13,42 @@ pipeline {
             }
         }
         
-        stage('Build') {
+        stage('Maven Build') {
             steps {
-                sh "${MAVEN_HOME}/bin/mvn clean install"
+                script {
+                    sh "mvn clean install"
+                }
+            }
+        }
+        
+        stage('Build Docker Image') {
+            steps {
+                script {
+                    // Build Docker image
+                    docker.build("mini-project", '.')
+                }
+            }
+        }
+        
+        stage('Push Docker Images') {
+            steps {
+                script{
+                    docker.withRegistry('', 'docker-jenkins') {
+                        sh 'docker tag mini-project someshawasthi/mini-project:latest'
+                        sh 'docker push someshawasthi/mini-project'
+                    }
+                 }
+            }
+        }
+        
+        stage('Run Ansible Playbook') {
+            steps {
+                script {
+                    ansiblePlaybook(
+                        playbook: 'deploy.yml',
+                        inventory: 'inventory'
+                     )
+                }
             }
         }
     }
