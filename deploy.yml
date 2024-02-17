@@ -2,14 +2,7 @@
 - hosts: localhost
   tasks:
     - name: Pull Docker image from Docker Hub
-      docker_image:
-        name: someshawasthi/mini-project:latest
-        source: pull
+      shell: docker someshawasthi/mini-project:latest
 
     - name: Run Docker container
-      docker_container:
-        name: mini-project-container
-        image: someshawasthi/mini-project:latest
-        ports:
-          - "8081:8080"
-        detach: yes
+      shell: docker run -d -p 8081:8080 someshawasthi/mini-project:latest
