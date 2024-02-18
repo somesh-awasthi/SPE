@@ -2,7 +2,7 @@
 - hosts: localhost
   tasks:
     - name: Pull Docker image from Docker Hub
-      shell: docker someshawasthi/mini-project:latest
+      shell: docker pull someshawasthi/mini-project:latest
 
     - name: Run Docker container
       shell: docker run -d -p 8081:8080 someshawasthi/mini-project:latest
