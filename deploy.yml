@@ -5,4 +5,4 @@
       shell: docker pull someshawasthi/mini-project:latest
 
     - name: Run Docker container
-      shell: docker run -d -p 8081:8080 someshawasthi/mini-project:latest
+      shell: /usr/bin/docker run -it -d someshawasthi/mini-project:latest
