@@ -3,6 +3,7 @@ pipeline {
     
     environment {
         MAVEN_HOME = tool 'Maven'
+        LANG = 'en_US.UTF-8'
         img_name = ""
     }
     
@@ -24,7 +25,6 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    // Build Docker image
                     docker.build("mini-project", '.')
                 }
             }
@@ -41,15 +41,12 @@ pipeline {
             }
         }
         
-        stage('Run Ansible Playbook') {
-            steps {
-                script {
-                    ansiblePlaybook(
-                        playbook: 'deploy.yml'
-                        inventory: 'inventory'
-                     )
-                }
-            }
-        }
+        stage('Run Ansible Playbook')
+		{
+			steps {
+			    ansiblePlaybook installation: 'Ansible', inventory: 'inventory', playbook: 'deploy.yml', vaultTmpPath: ''
+			    
+			}
+		}
     }
 }
